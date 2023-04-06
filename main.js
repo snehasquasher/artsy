@@ -33,7 +33,7 @@ var twod = {
         var url = "ws://" + host + "/twod";
         twod.socket = new WebSocket(url);
 
-        // whenever a new frame is received...
+        // whenever a new frame is received... 
         twod.socket.onmessage = function (event) {
 
             // parse and show the raw data
