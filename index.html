@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Display</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="background"></div>
 
-  <head>
-    <h1>HCI Tutorial</h1>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src = "https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
-      <script src="index.js" type="text/javascript"></script>
-  </head>
-  <body>
-      <!-- page content goes here -->
-      <script src = "sketch.js"></script>
-      <img class="twod"/>
-  </body>
+  <div class="display-container">
+    <div class="display-screen">
+      <h1>Stand in Front of the Screen</h1>
+      <p>Raise Your Right Hand for <b>5</b> Seconds to Begin</p>
+      <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+      </div>
+      <button id="tutorial-screen-btn" class ="button">Next Screen</button>
+	 
+    </div>
+  </div>
+
+  <!-- Add your scripts here -->
+  <script src="landing_screen.js"></script>
+</body>
 </html>
