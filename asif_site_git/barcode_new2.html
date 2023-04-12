@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Scan QR to obtain your image!</h1>
+
+        <div id="qrCodeContainer"></div>
+    </div>
+
+    <div id="buttonContainer">
+        <button id="button">Next Screen</button>
+    </div>
+
+    
+    <script>
+        var qrCodeContainer = document.getElementById('qrCodeContainer');
+
+        
+        var qrCode = new QRCode(qrCodeContainer, {
+            text: 'https://media.tenor.com/x8v1oNUOmg4AAAAM/rickroll-roll.gif',
+            width: 256,
+            height: 256,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        
+        qrCodeContainer.style.display = 'block';
+        qrCodeContainer.style.margin = 'auto';
+
+        
+        var button = document.getElementById('button');
+        button.addEventListener('click', function() {
+        
+        window.location.href = 'AddToHomeScreen.html';
+        });
+    </script>
+
+    <style>
+        
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        
+        #container {
+            position: relative; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        
+        #title {
+            text-align: center;
+            position: fixed; 
+            top: 70px; 
+            width: 100%; 
+            margin: 0; 
+            padding: 20px; 
+            font-size: 90px;
+            font-family: Arial, sans-serif; 
+            color: white; 
+            background-color: darkgray; 
+            border: 5px solid black; 
+            border-radius: 5px; 
+            box-sizing: border-box;
+        
+        }
+        
+        
+        #buttonContainer {
+            position: fixed;
+            bottom: 20px; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+       
+        #button {
+            padding: 20px;
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: darkgray;
+            border: 5px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+            
+    </style>
+</body>
+</html>
