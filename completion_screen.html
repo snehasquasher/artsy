@@ -1,15 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Completion Screen</title>
+</head>
 <body>
-    <div id="questionBin">
-        <div id ="questionBinText"> Do you want your drawing added to our weekly collage?</div>
-    </div>
+	<div class="background"></div>
 
-    <div id="buttonContainerExit">
-        <button id ="buttonExit">Raise left hand to exit</button>
-    </div>
-    
-    <div id="buttonContainerConfirm">
-        <button id ="buttonConfirm">Raise right hand to confirm</button>
-    </div>
+	<div class="display-container">
+	  <div class="display-screen">
+      <h1> Do you want your drawing added to our weekly collage?</h1>
+      <div class = "completion-option-container">
+        <button class ="exit-button"> Raise left hand to exit</button>
+    <button class ="confirm-button">Raise right hand to confirm</button>
+     </div>
+           
 
     <script>
         var buttonExit = document.getElementById("buttonExit");
@@ -24,68 +29,6 @@
     </script>
 
     <style>
-        #questionBin {
-            position: relative; 
-            display: flex;
-            flex-direction: column; 
-            align-items: center;    
-        }
-
-        #questionBinText {
-            text-align: center;
-            position: fixed; 
-            top: 70px; 
-            width: 100%; 
-            margin: 0; 
-            padding: 20px; 
-            font-size: 90px;
-            font-family: Arial, sans-serif; 
-            color: white; 
-            background-color: darkgray; 
-            border: 5px solid black; 
-            border-radius: 5px; 
-            box-sizing: border-box;
-        }
-
-
-        #buttonContainerExit {
-            position: absolute;
-            bottom: 0;
-            left:0;
-            margin: 10px;
-        }
-
-        #buttonContainerConfirm {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            margin: 10px;    
-        }
-
-        #buttonExit {
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-            color: white;
-            background-color: darkgray;
-            border: 5px solid black;
-            border-radius: 5px;
-            padding: 20px;
-            width: 500px;
-            height: 100px;
-            cursor: pointer;
-        }
-
-        #buttonConfirm {
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-            color: white;
-            background-color: darkgray;
-            border: 5px solid black;
-            border-radius: 5px;
-            padding: 20px;
-            width: 500px;
-            height: 100px;
-            cursor: pointer;
-        }
+    
     </style>
 </body>

@@ -19,6 +19,7 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; 
 }
 
 .display-screen {
@@ -61,7 +62,6 @@ p {
   height: 100%;
   background-color: rgb(41, 186, 104);
   width: 40%;
-  
   border-radius: 8rem;
   
 }
@@ -73,4 +73,36 @@ p {
   margin-top:5%;
   border: none;
   width: 50%;
+}
+
+.exit-button{
+  background-color: rgb(236, 129, 110);
+  border-radius: 8rem;
+  border-radius: 8rem;
+  padding: 20px;
+  width: 500px;
+  height: 100px;
+  cursor: pointer;
+
+}
+
+.confirm-button{
+  background-color: rgb(103, 232, 155);
+  border-radius: 8rem;
+  border-radius: 8rem;
+  padding: 20px;
+  width: 500px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.completion-option-container {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: absolute;
+  bottom: 10%;
+  grid-gap: 200px; 
+  
 }
