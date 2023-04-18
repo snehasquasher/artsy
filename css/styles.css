@@ -142,9 +142,10 @@ p {
   border-radius: 8rem;
   border-radius: 8rem;
   padding: 20px;
-  width: 500px;
-  height: 100px;
+  width: 300px;
+  height: 50px;
   cursor: pointer;
+  font-size: medium;
 
 }
 
@@ -153,9 +154,10 @@ p {
   border-radius: 8rem;
   border-radius: 8rem;
   padding: 20px;
-  width: 500px;
-  height: 100px;
+  width: 300px;
+  height: 50px;
   cursor: pointer;
+  font-size: medium;
 }
 
 .completion-option-container {
@@ -165,6 +167,6 @@ p {
   flex-direction: row;
   position: absolute;
   bottom: 10%;
-  grid-gap: 200px; 
-  
+  grid-gap: 100px; 
+
 }
