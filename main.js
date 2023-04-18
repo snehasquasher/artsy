@@ -1,6 +1,3 @@
-
-  
-
 // accessing display 1
 var socket = new WebSocket("ws://cpsc484-01.yale.internal:8888/frames");
 
@@ -8,6 +5,7 @@ var host = "cpsc484-01.yale.internal:8888";
 
 $(document).ready(function () {
     frames.start();
+    twod.start();
 });
 
 var frames = {
