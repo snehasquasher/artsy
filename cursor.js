@@ -33,47 +33,41 @@ var frames = {
         frames.socket.onmessage = function (event) {
             let frameData = JSON.parse(event.data);
 
-            // const errorPopup = document.getElementById('error-popup');
+            const errorPopup = document.getElementById('error-popup');
 
-            // if (frameData.people.length > 1) { // Ensure that there is only one person in the frame
-            //     errorPopup.style.display = 'block';
-            //     return;
-            // }
+            if (frameData.people.length > 1) { // Ensure that there is only one person in the frame
+                errorPopup.style.display = 'block';
+                return;
+            }
 
-            // errorPopup.style.display = 'none';
+            errorPopup.style.display = 'none';
 
-            // if (frameData.people.length == 0) { // Do nothing if there are no people in the frame
-            //     return;
-            // }
+            if (frameData.people.length == 0) { // Do nothing if there are no people in the frame
+                return;
+            }
 
-            // const handLeft = frameData.people[0].joints[HAND_LEFT_JOINT_INDEX]; // Get the left hand joint
-            // const handRight = frameData.people[0].joints[HAND_RIGHT_JOINT_INDEX]; // Get the right hand joint
+            const handLeft = frameData.people[0].joints[HAND_LEFT_JOINT_INDEX]; // Get the left hand joint
+            const handRight = frameData.people[0].joints[HAND_RIGHT_JOINT_INDEX]; // Get the right hand joint
 
-            // const leftHandValid = handLeft.valid; // Check if the left hand joint is valid
-            // const rightHandValid = handRight.valid; // Check if the right hand joint is valid
+            const leftHandValid = handLeft.valid; // Check if the left hand joint is valid
+            const rightHandValid = handRight.valid; // Check if the right hand joint is valid
 
-            // if (!leftHandValid && !rightHandValid) {
-            //     return;
-            // }
+            if (!leftHandValid && !rightHandValid) {
+                return;
+            }
 
-            // const leftHandX = handLeft.position.x; // Get the x position of the left hand joint
-            // const leftHandY = handLeft.position.y; //  Get the y position of the left hand joint
+            const leftHandX = handLeft.position.x; // Get the x position of the left hand joint
+            const leftHandY = handLeft.position.y; //  Get the y position of the left hand joint
 
-            // const rightHandX = handRight.position.x; // Get the x position of the right hand joint
-            // const rightHandY = handRight.position.y; // Get the y position of the right hand joint
+            const rightHandX = handRight.position.x; // Get the x position of the right hand joint
+            const rightHandY = handRight.position.y; // Get the y position of the right hand joint
 
-            // const cursorElement = document.getElementById('cursor');
+            const cursorElement = document.getElementById('cursor');
 
-            // // Use right hand as cursor
+            // Use right hand as cursor
 
-            // cursorElement.style.left = rightHandX + 'px';
-            // cursorElement.style.top = rightHandY + 'px';
-
-            leftHandX = 0;
-            leftHandY = 0;
-            rightHandX = 0;
-            rightHandY = 0;
-
+            cursorElement.style.left = rightHandX + 'px';
+            cursorElement.style.top = rightHandY + 'px';
             cursorMoveCallback({x: leftHandX, y: leftHandY}, {x: rightHandX, y: rightHandY});
         }
     },
