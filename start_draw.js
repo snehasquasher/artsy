@@ -38,9 +38,6 @@ function submit() {
 }
 
 function drawingCallback(_, rightHand) {
-    rightHand.x = Math.random() * 1000;
-    rightHand.y = Math.random() * 1000;
-
     // Get the top corner of the canvas
     let x = rightHand.x - canvas.offsetLeft;
     let y = rightHand.y - canvas.offsetTop;
