@@ -1,15 +1,3 @@
-var firebaseConfig = {
-	apiKey: "AIzaSyDPgizozUbkYwQIztWVRl6EgZMoq6WdXPo",
-	authDomain: "artsy-d792c.firebaseapp.com",
-	projectId: "artsy-d792c",
-	storageBucket: "artsy-d792c.appspot.com",
-	messagingSenderId: "482830049581",
-	appId: "1:482830049581:web:7f0b37d5198a91aede73a4",
-	measurementId: "G-4J33Q83M3F",
-}
-
-firebase.initializeApp(firebaseConfig)
-
 var storage = firebase.storage()
 
 var storageRef = storage.ref()
