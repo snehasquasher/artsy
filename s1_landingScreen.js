@@ -30,7 +30,7 @@ function updateCursorPosition(_, rightHand, neck) {
     var timeElapsed = Date.now() - lastCursorUpdateTime;
 
     if(timeElapsed > timer) {
-        window.location.href = 's2_tutorial.html';
+        window.location.href = 'prompt_pick.html';
         timer = SELECTION_TIMEOUT;
     } else {
         timer -= timeElapsed;
