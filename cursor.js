@@ -1,9 +1,10 @@
 // accessing display 1
 const HAND_LEFT_JOINT_INDEX = 8
 const HAND_RIGHT_JOINT_INDEX = 14
+const NECK = 2
 
-var socket = new WebSocket("ws://cpsc484-01.yale.internal:8888/frames");
-var host = "cpsc484-01.yale.internal:8888";
+var socket = new WebSocket("ws://cpsc484-02.yale.internal:8888/frames");
+var host = "cpsc484-02.yale.internal:8888";
 
 function addCursor() {
     const cursorElement = document.createElement('div'); // Create a new 'div' element for the cursor
@@ -48,11 +49,13 @@ var frames = {
 
             const handLeft = frameData.people[0].joints[HAND_LEFT_JOINT_INDEX]; // Get the left hand joint
             const handRight = frameData.people[0].joints[HAND_RIGHT_JOINT_INDEX]; // Get the right hand joint
+            const neck = frameData.people[0].joints[NECK];// Get the neck
 
             const leftHandValid = handLeft.valid; // Check if the left hand joint is valid
             const rightHandValid = handRight.valid; // Check if the right hand joint is valid
+            const neckValid = neck.valid; // Check if the neck is valid
 
-            if (!leftHandValid && !rightHandValid) {
+            if (!leftHandValid && !rightHandValid && !neckValid) {
                 return;
             }
 
@@ -62,13 +65,16 @@ var frames = {
             const rightHandX = handRight.position.x; // Get the x position of the right hand joint
             const rightHandY = handRight.position.y; // Get the y position of the right hand joint
 
+            const neckX = neck.position.x; // Get the x position of the neck
+            const neckY = neck.position.y; // Get the y position of the neck
+
             const cursorElement = document.getElementById('cursor');
 
             // Use right hand as cursor
 
             cursorElement.style.left = rightHandX + 'px';
             cursorElement.style.top = rightHandY + 'px';
-            cursorMoveCallback({x: leftHandX, y: leftHandY}, {x: rightHandX, y: rightHandY});
+            cursorMoveCallback({x: leftHandX, y: leftHandY}, {x: rightHandX, y: rightHandY}, {x: neckX, y: neckY});
         }
     },
     show: function (frame) {

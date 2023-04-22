@@ -5,12 +5,16 @@ var timer;
 
 const nextScreenBtn = document.getElementById('tutorial-screen-btn');
 
-function updateCursorPosition(_, rightHand) {
+function updateCursorPosition(_, rightHand, neck) {
 
     let y = rightHand.y;
+    console.log('y: ', y)
+    let neckHeight = neck.y;
+    console.log('neckHeight: ', neckHeight)
 
     const progressBar = document.getElementById('progress-bar-fill');
-    if(y < window.innerHeight / 2) { // If the cursor is in the bottom half of the screen, reset the timer
+    if(y >= neckHeight) { // If the cursor is in the bottom half of the screen, reset the timer
+        console.log('hand is down')
         timer = SELECTION_TIMEOUT; // Reset timer
         lastCursorUpdateTime = Date.now();
         if (progressBar.classList.contains('animate')) {
@@ -18,7 +22,7 @@ function updateCursorPosition(_, rightHand) {
         }
         return;
     }
-
+    console.log('hand is up')
     if (!progressBar.classList.contains('animate')) {
         progressBar.classList.add('animate');
     }
