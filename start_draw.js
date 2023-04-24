@@ -3,6 +3,7 @@ var ctx;
 var isDrawing = false;
 var cursorElement;
 var prompt;
+var promptElement;
 
 function isElementOverlapping(x, y) {
     var rect = canvas.getBoundingClientRect()
@@ -22,7 +23,6 @@ function dataURItoBlob(dataURI) {
 
 
 function submit() {
-    console.log("Submit button clicked")
     if (!canvas) {
         return
     }
@@ -33,8 +33,9 @@ function submit() {
     const date = new Date();
     const timestamp = date.getTime();
 
-    var fileName = timestamp + prompt + '.png';
-    addImage(blob, fileName);
+    storeImage(blob, prompt, timestamp).then(function () {
+        window.location.href = 'gallery.html';
+    })
 }
 
 function drawingCallback(_, rightHand) {
@@ -69,7 +70,9 @@ $(document).ready(function () {
     if (prompt) {
         document.getElementById('prompt').innerHTML = prompt;
     } else {
-        prompt = choosePrompt();
+        r = choosePrompt();
+        prompt = r.prompt;
+        promptElement = r.promptElement;
     }
 });
 

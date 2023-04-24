@@ -5,6 +5,7 @@
   <head>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <meta charset="UTF-8" />
     <title>Interactive Display</title>
     <link rel="stylesheet" href="css/styles.css" />
@@ -16,7 +17,7 @@
       <h1 class="title_text">Sketch Pad</h1>
       <div class="error-popup" id="error-popup">
         <h1>Please ensure there is only one person in frame.</h1>
-      </div>"
+      </div>
       <div class="display-screen">
         <img class="frame" />
         <h1>Stand in Front of the Screen</h1>
@@ -28,20 +29,7 @@
       </div>
     </div>
     <!-- Add your scripts here -->
-    <script>
-      var firebaseConfig = {
-          apiKey: "YOUR_API_KEY",
-          authDomain: "YOUR_AUTH_DOMAIN",
-          projectId: "YOUR_PROJECT_ID",
-          storageBucket: "YOUR_STORAGE_BUCKET",
-          messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-          appId: "YOUR_APP_ID",
-          measurementId: "YOUR_MEASUREMENT_ID"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
-    <script src="firebase.js"></script>
-    <script src="s1_landingScreen.js"></script>
-  </body>
+      <script src="firebase.js"></script>
+      <script src="s1_landingScreen.js"></script>
+    </body>
 </html>
