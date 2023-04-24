@@ -20,32 +20,8 @@
     </div>
 
     
-    <script>
-        var qrCodeContainer = document.getElementById('qrCodeContainer');
-
-        
-        var qrCode = new QRCode(qrCodeContainer, {
-            text: 'https://media.tenor.com/x8v1oNUOmg4AAAAM/rickroll-roll.gif',
-            width: 256,
-            height: 256,
-            colorDark: 'darkblue',
-            colorLight: 'lightblue',
-            correctLevel: QRCode.CorrectLevel.H,
-        });
-
-        
-        qrCodeContainer.style.display = 'block';
-        qrCodeContainer.style.margin = 'auto';
-
-        
-        var button = document.getElementById('button');
-        button.addEventListener('click', function() {
-            window.location.href = 'AddToHomeScreen.html';
-        });
-    </script>
-
+    <script src="barcode.js"></script>
     <style>
-        
         body {
             height: 100vh;
             display: flex;
