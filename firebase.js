@@ -16,7 +16,6 @@ var storageRef = storage.ref()
 var db = firebase.firestore()
 
 function storeImageMetadata(downloadUrl, filename, prompt, time) {
-	console.log("Storing image");
 	var collectionRef = db.collection('drawings');
 	var data = {
 		downloadUrl: downloadUrl,

@@ -21,7 +21,6 @@ function dataURItoBlob(dataURI) {
     return new Blob([ab], { type: mimeString });
 }
 
-
 function submit() {
     if (!canvas) {
         return
@@ -59,7 +58,26 @@ function drawingCallback(_, rightHand) {
     }
 }
 
+function calculateSeconds(timeRemaining) {
+    return Math.floor((timeRemaining % (1000 * 60)) / 1000);
+}
+
+function startTimer() {
+    var end = new Date().getTime() + 32000; // Strange hack to get a 30 second timer
+    var countdownTimer = document.getElementById('timer');
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+        var seconds = calculateSeconds(end - now);
+        countdownTimer.innerHTML = seconds + 's';
+        if (seconds <= 0) {
+            clearInterval(x);
+            submit();
+        }
+    }, 1000);
+}
+
 $(document).ready(function () {
+    startTimer();
     startCursorTracking(drawingCallback);
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');

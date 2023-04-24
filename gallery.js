@@ -24,7 +24,6 @@ function renderDrawing(drawing, idx) {
 	document.getElementById(containerId).appendChild(dateEl);
 }
 
-
 function renderGallery(drawings) {
 	for (let i = 0; i < drawings.length; i++) {
 		let drawing = drawings[i];
