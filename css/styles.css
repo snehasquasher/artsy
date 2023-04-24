@@ -299,3 +299,12 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+#startButton {
+  background-color: rgb(197, 233, 218);
+  border-radius: 8rem;
+  height: 10%; 
+  margin-top:5%;
+  border: none;
+  width: 50%;
+}
