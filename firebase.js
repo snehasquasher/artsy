@@ -36,6 +36,7 @@ function storeImage(image, prompt, timestamp) {
 	var imageRef = storageRef.child('drawings/' + fileName);
 	return imageRef.put(image).then(function (snapshot) {
 		return snapshot.ref.getDownloadURL().then((url) => {
+			localStorage.setItem('downloadUrl', url);
 			return storeImageMetadata(url, fileName, prompt, timestamp)
 		}).catch((error) => {
 			console.log(error)

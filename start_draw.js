@@ -32,8 +32,8 @@ function submit() {
     const date = new Date();
     const timestamp = date.getTime();
 
-    storeImage(blob, prompt, timestamp).then(function () {
-        window.location.href = 'gallery.html';
+    storeImage(blob, prompt, timestamp).then(function (downloadUrl) {
+        window.location.href = 'barcode2.html';
     })
 }
 
