@@ -39,14 +39,13 @@ function submit() {
 
 function drawingCallback(_, rightHand) {
     // Get the top corner of the canvas
-    let x = rightHand.x - canvas.offsetLeft;
-    let y = rightHand.y - canvas.offsetTop;
+    rightHand.x = window.innerWidth - rightHand.x;
 
     cursorElement.style.left = rightHand.x + 'px';
     cursorElement.style.top = rightHand.y + 'px';
 
     if (isDrawing) {
-        ctx.lineTo(x, y);
+        ctx.lineTo(rightHand.x, rightHand.y);
         ctx.stroke();
     } else {
         isDrawing = true;
@@ -54,7 +53,7 @@ function drawingCallback(_, rightHand) {
         ctx.lineCap = 'round';
         ctx.strokeStyle = 'black';
         ctx.beginPath();
-        ctx.moveTo(x, y);
+        ctx.moveTo(rightHand.x, rightHand.y);
     }
 }
 
@@ -76,8 +75,8 @@ function startTimer() {
     }, 1000);
 }
 
-$(document).ready(function () {
-    startTimer();
+$(function () {
+    // startTimer();
     startCursorTracking(drawingCallback);
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');

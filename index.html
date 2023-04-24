@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://use.typekit.net/cxk6yed.css" />
   </head>
   <body>
-    <div class="background"></div>
+    <!-- <div class="background"></div> -->
     <div class="display-container">
       <h1 class="title_text">Sketch Pad</h1>
-      <div class="error-popup" id="error-popup">
+      <!-- <div class="error-popup" id="error-popup">
         <h1>Please ensure there is only one person in frame.</h1>
-      </div>
+      </div> -->
       <div class="display-screen">
         <img class="frame" />
         <h1>Stand in Front of the Screen</h1>
@@ -25,11 +25,13 @@
         <div class="progress-bar">
           <div class="progress-bar-fill" id="progress-bar-fill"></div>
         </div>
-        <button id="tutorial-screen-btn" class="button">Next Screen</button>
       </div>
+      <div id="gallery" class="gallery"></div>
     </div>
+
     <!-- Add your scripts here -->
-      <script src="firebase.js"></script>
-      <script src="s1_landingScreen.js"></script>
-    </body>
+    <script src="gallery.js"></script>
+    <script src="firebase.js"></script>
+    <script src="s1_landingScreen.js"></script>
+  </body>
 </html>

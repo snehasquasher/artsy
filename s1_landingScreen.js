@@ -42,11 +42,8 @@ function updateCursorPosition(_, rightHand, neck) {
 $(document).ready(function () {
   lastCursorUpdateTime = Date.now();
   timer = SELECTION_TIMEOUT;
-  startCursorTracking(updateCursorPosition);
+//   startCursorTracking(updateCursorPosition);
 });
 
 
-nextScreenBtn.addEventListener('click', () => {
-  window.location.href = 's2_tutorial.html';
-});
 

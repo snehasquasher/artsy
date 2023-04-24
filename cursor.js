@@ -1,8 +1,9 @@
 // accessing display 1
 const HAND_LEFT_JOINT_INDEX = 8
 const HAND_RIGHT_JOINT_INDEX = 14
+const HANDTIP_RIGHT = 16
 const CHEST = 2
-const DEV = true
+const DEV = false
 
 var socket = new WebSocket("ws://cpsc484-02.yale.internal:8888/frames");
 var host = "cpsc484-02.yale.internal:8888";
@@ -22,7 +23,7 @@ function addErrorPopup() {
 }
 
 function startCursorTracking(cursorMoveCallback) {
-    addCursor();
+    addCursor()
     addErrorPopup();
     frames.start(cursorMoveCallback);
 }
@@ -50,7 +51,7 @@ var frames = {
                 }
 
                 const handLeft = frameData.people[0].joints[HAND_LEFT_JOINT_INDEX]; // Get the left hand joint
-                const handRight = frameData.people[0].joints[HAND_RIGHT_JOINT_INDEX]; // Get the right hand joint
+                const handRight = frameData.people[0].joints[HANDTIP_RIGHT]; // Get the right hand joint
                 const chest = frameData.people[0].joints[CHEST];// Get the neck
 
                 const leftHandValid = handLeft.valid; // Check if the left hand joint is valid
@@ -74,8 +75,8 @@ var frames = {
 
                 // Use right hand as cursor
 
-                cursorElement.style.left = rightHandX + 'px';
-                cursorElement.style.top = rightHandY + 'px';
+                // cursorElement.style.left = rightHandX + 'px';
+                // cursorElement.style.top = rightHandY + 'px';
                 cursorMoveCallback({x: leftHandX, y: leftHandY}, {x: rightHandX, y: rightHandY}, {y: chestY});
             } else {
                 const leftHandX = Math.random() * 1000;

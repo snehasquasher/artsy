@@ -21,7 +21,7 @@ function renderDrawing(drawing, idx) {
 	promptEl.innerHTML = drawing.prompt;
 	promptEl.className = 'gallery-prompt';
 	document.getElementById(containerId).appendChild(promptEl);
-	document.getElementById(containerId).appendChild(dateEl);
+	// document.getElementById(containerId).appendChild(dateEl);
 }
 
 function renderGallery(drawings) {
@@ -34,6 +34,28 @@ function renderGallery(drawings) {
 $(document).ready(function () {
 	getDrawings().then(function (drawings) {
 		renderGallery(drawings)
+
+		const gallery = document.querySelector('.gallery');
+		const items = document.querySelectorAll('.gallery-image-container');
+
+		const numItems = items.length;
+		const itemWidth = items[0].offsetWidth;
+		const totalWidth = numItems * itemWidth;
+
+		let itemIdx = 0;
+
+		let currentPosition = 0;
+
+		function moveItems() {
+			currentPosition -= 1;
+			if (currentPosition < -itemWidth * (numItems / 2)) {
+				console.log('resetting');
+				currentPosition += itemWidth;
+				gallery.appendChild(items[itemIdx % numItems]);
+				itemIdx++;
+			}
+			gallery.style.transform = `translateX(${currentPosition}px)`;
+		}
+		setInterval(moveItems, 30);
 	})
 })
-	

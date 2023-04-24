@@ -36,21 +36,22 @@ body {
 
 .display-screen {
   width: 80%;
-  height: 60%;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   border: 10px solid #000;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .display-screen2 {
   width: 80%;
-  height: 30%;
+  height: 20%;
   background-color: #fff;
   border: 10px solid #000;
   border-radius: 10px;
@@ -65,10 +66,12 @@ body {
 
 .title_text {
   font-family: "ff-market-web", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
-  font-size: 200px;
+  font-size: 150px;
   color: white;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .prompt-div {
@@ -108,20 +111,6 @@ body {
   position: relative;
   flex-direction: column;
   margin: 2rem;
-}
-
-h1 {
-  color: #000;
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-p {
-  color: #000;
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 2rem;
 }
 
 .progress-bar {
@@ -229,36 +218,50 @@ p {
 }
 
 #gallery {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+  white-space: nowrap;
+  margin-bottom: 20px;
 }
 
 #gallery .gallery-image-container {
-  width: calc(33.33% - 10px);
-  margin-bottom: 20px;
-  position: relative;
-  background-color: white;
-  border-radius: 10px;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif;
+  background: #CB1C8D;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  /* background: linear-gradient(to bottom right, #ff5722, #e91e63); */
 }
 
 #gallery .gallery-image-container img  {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif;
   width: 100%;
+  height: 80%;
 }
 
-.gallery .gallery-item p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.gallery-prompt {
+  font-family: "ff-market-web", sans-serif;
+  color: white;
   width: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
+  align-self: center;
+  margin-top: 5px;
+  font-size: large;
+  font-weight: bold;
 }
+
 
 
 #canvas {
