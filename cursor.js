@@ -53,7 +53,7 @@ var frames = {
                 const handLeft = frameData.people[0].joints[HAND_LEFT_JOINT_INDEX]; // Get the left hand joint
                 const handRight = frameData.people[0].joints[HANDTIP_RIGHT]; // Get the right hand joint
                 const chest = frameData.people[0].joints[CHEST];// Get the neck
-
+                
                 const leftHandValid = handLeft.valid; // Check if the left hand joint is valid
                 const rightHandValid = handRight.valid; // Check if the right hand joint is valid
                 const chestValid = chest.valid; // Check if the neck is valid

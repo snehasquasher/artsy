@@ -4,7 +4,9 @@ var isDrawing = false;
 var cursorElement;
 var prompt;
 var promptElement;
-var strokeColor;
+var complete = false; 
+const SELECTION_TIMEOUT = 2000;
+var lastCursorUpdateTime;
 
 function isElementOverlapping(x, y) {
     var rect = canvas.getBoundingClientRect()
@@ -38,21 +40,38 @@ function submit() {
     })
 }
 
-function drawingCallback(_, rightHand) {
+function drawingCallback(_, rightHand,leftHand) {
     // Get the top corner of the canvas
-    rightHand.x = canvas.getBoundingClientRect().right - rightHand.x;
+    rightHand.x = window.innerWidth - rightHand.x;
 
     cursorElement.style.left = rightHand.x + 'px';
     cursorElement.style.top = rightHand.y + 'px';
+    
+    let rightHand_xaxis = rightHand.x; 
+    let leftHand_xaxis = leftHand.x; 
+
+    if (leftHand_xaxis < rightHand_xaxis){
+        console.log('hand is crossed')
+        timeElapsed = Date.now() - lastCursorUpdateTime;
+        if(timeElapsed > timer) {
+            window.location.href = 'index.html';
+            timer = SELECTION_TIMEOUT;
+        } else {
+            timer -= timeElapsed;
+        }
+    
+        lastCursorUpdateTime = Date.now();
+    }
 
     if (isDrawing) {
+        timer = SELECTION_TIMEOUT;
         ctx.lineTo(rightHand.x, rightHand.y);
         ctx.stroke();
     } else {
         isDrawing = true;
-        ctx.globalAlpha = 0.3
-        ctx.lineWidth = 30;
+        ctx.lineWidth = 5;
         ctx.lineCap = 'round';
+        ctx.strokeStyle = 'black';
         ctx.beginPath();
         ctx.moveTo(rightHand.x, rightHand.y);
     }
@@ -61,8 +80,6 @@ function drawingCallback(_, rightHand) {
 function calculateSeconds(timeRemaining) {
     return Math.floor((timeRemaining % (1000 * 60)) / 1000);
 }
-
-
 
 function startTimer() {
     var end = new Date().getTime() + 32000; // Strange hack to get a 30 second timer
@@ -80,24 +97,22 @@ function startTimer() {
 
 $(function () {
     // startTimer();
+    startCursorTracking(drawingCallback);
+    timer = SELECTION_TIMEOUT;
+    lastCursorUpdateTime = Date.now();
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
 
     cursorElement = document.getElementById('cursor');
     // Read prompt from localStorage    
     prompt = localStorage.getItem('prompt');
-    strokeColor = localStorage.getItem('strokeColor');
     if (prompt) {
         document.getElementById('prompt').innerHTML = prompt;
     } else {
         r = choosePrompt();
-        prompt = r.prompt.emotion;
-        strokeColor = r.prompt.color;
+        prompt = r.prompt;
         promptElement = r.promptElement;
     }
-    
-    ctx.strokeStyle = strokeColor;
-    startCursorTracking(drawingCallback);
 });
 
 
