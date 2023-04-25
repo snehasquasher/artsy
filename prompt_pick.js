@@ -26,11 +26,11 @@ const prompts = [
 function choosePrompt() {
   var promptEl = document.getElementById('prompt');
   const prompt = prompts[Math.floor(Math.random() * prompts.length)];
-  promptEl.innerHTML = prompts[Math.floor(Math.random() * prompts.length)].emotion;
+
+  promptEl.innerHTML = prompt.emotion;
   color = prompt.color;
   localStorage.setItem('prompt', prompt.emotion);
   localStorage.setItem('strokeColor', color);
-
   return {
     prompt,
     promptElement: prompt

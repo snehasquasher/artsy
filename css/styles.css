@@ -241,13 +241,10 @@ body {
   position: absolute;
   bottom: 10%;
   grid-gap: 100px; 
-
 }
 
 #cursor {
   position: absolute;
-  top: 50%;
-  left: 50%;
   width: 60px;
   height: 60px;
   border-radius: 50%;

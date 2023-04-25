@@ -2,7 +2,7 @@
 const HAND_LEFT_JOINT_INDEX = 8
 const HAND_RIGHT_JOINT_INDEX = 14
 const HANDTIP_RIGHT = 16
-const CHEST = 2
+const CHEST = 3
 const DEV = false
 
 var socket = new WebSocket("ws://cpsc484-02.yale.internal:8888/frames");
@@ -39,10 +39,10 @@ var frames = {
 
                 const errorPopup = document.getElementById('error-popup');
 
-                if (frameData.people.length > 1) { // Ensure that there is only one person in the frame
-                    errorPopup.style.display = 'block';
-                    return;
-                }
+                // if (frameData.people.length > 1) { // Ensure that there is only one person in the frame
+                //     errorPopup.style.display = 'block';
+                //     return;
+                // }
 
                 errorPopup.style.display = 'none';
 
