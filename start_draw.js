@@ -4,6 +4,7 @@ var isDrawing = false;
 var cursorElement;
 var prompt;
 var promptElement;
+var strokeColor;
 
 function isElementOverlapping(x, y) {
     var rect = canvas.getBoundingClientRect()
@@ -39,7 +40,7 @@ function submit() {
 
 function drawingCallback(_, rightHand) {
     // Get the top corner of the canvas
-    rightHand.x = window.innerWidth - rightHand.x;
+    rightHand.x = canvas.getBoundingClientRect().right - rightHand.x;
 
     cursorElement.style.left = rightHand.x + 'px';
     cursorElement.style.top = rightHand.y + 'px';
@@ -49,9 +50,9 @@ function drawingCallback(_, rightHand) {
         ctx.stroke();
     } else {
         isDrawing = true;
-        ctx.lineWidth = 5;
+        ctx.globalAlpha = 0.3
+        ctx.lineWidth = 30;
         ctx.lineCap = 'round';
-        ctx.strokeStyle = 'black';
         ctx.beginPath();
         ctx.moveTo(rightHand.x, rightHand.y);
     }
@@ -60,6 +61,8 @@ function drawingCallback(_, rightHand) {
 function calculateSeconds(timeRemaining) {
     return Math.floor((timeRemaining % (1000 * 60)) / 1000);
 }
+
+
 
 function startTimer() {
     var end = new Date().getTime() + 32000; // Strange hack to get a 30 second timer
@@ -77,20 +80,24 @@ function startTimer() {
 
 $(function () {
     // startTimer();
-    startCursorTracking(drawingCallback);
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
 
     cursorElement = document.getElementById('cursor');
     // Read prompt from localStorage    
     prompt = localStorage.getItem('prompt');
+    strokeColor = localStorage.getItem('strokeColor');
     if (prompt) {
         document.getElementById('prompt').innerHTML = prompt;
     } else {
         r = choosePrompt();
-        prompt = r.prompt;
+        prompt = r.prompt.emotion;
+        strokeColor = r.prompt.color;
         promptElement = r.promptElement;
     }
+    
+    ctx.strokeStyle = strokeColor;
+    startCursorTracking(drawingCallback);
 });
 
 

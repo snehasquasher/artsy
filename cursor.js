@@ -3,7 +3,7 @@ const HAND_LEFT_JOINT_INDEX = 8
 const HAND_RIGHT_JOINT_INDEX = 14
 const HANDTIP_RIGHT = 16
 const CHEST = 2
-const DEV = false
+const DEV = true
 
 var socket = new WebSocket("ws://cpsc484-02.yale.internal:8888/frames");
 var host = "cpsc484-02.yale.internal:8888";
@@ -23,7 +23,7 @@ function addErrorPopup() {
 }
 
 function startCursorTracking(cursorMoveCallback) {
-    addCursor()
+    addCursor();
     addErrorPopup();
     frames.start(cursorMoveCallback);
 }

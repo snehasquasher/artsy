@@ -7,35 +7,32 @@ var lastRightHandUpdateTime;
 var leftTimer;
 var rightTimer;
 
+var color;
+
 
 const prompts = [
-  "Cat",
-  "Tree",
-  "Car",
-  "House",
-  "Sun",
-  "Clock",
-  "Apple",
-  "Dog",
-  "Ball",
-  "Book",
-  "Flower",
-  "Chair",
-  "Fish",
-  "Bird",
-  "Cake",
-  "Bridge",
-  "Rainbow",
-  "Star",
-  "Bicycle",
-  "Moon"
+  { emotion: 'Love', color: '#FFC0CB' },
+  { emotion: 'Joy', color: '#FFFF00' },
+  { emotion: 'Excitement', color: '#FF4500' },
+  { emotion: 'Anger', color: '#FF0000' },
+  { emotion: 'Sadness', color: '#6495ED' },
+  { emotion: 'Fear', color: '#8B0000' },
+  { emotion: 'Disgust', color: '#008000' },
+  { emotion: 'Surprise', color: '#FF69B4' },
+  { emotion: 'Envy', color: '#008080' },
+  { emotion: 'Calmness', color: '#00CED1' }
 ];
 
 function choosePrompt() {
-  const prompt = document.getElementById('prompt');
-  prompt.innerHTML = prompts[Math.floor(Math.random() * prompts.length)];
+  var promptEl = document.getElementById('prompt');
+  const prompt = prompts[Math.floor(Math.random() * prompts.length)];
+  promptEl.innerHTML = prompts[Math.floor(Math.random() * prompts.length)].emotion;
+  color = prompt.color;
+  localStorage.setItem('prompt', prompt.emotion);
+  localStorage.setItem('strokeColor', color);
+
   return {
-    prompt: prompt.innerHTML,
+    prompt,
     promptElement: prompt
   }
 }
@@ -78,6 +75,7 @@ function updateCursorPosition(leftHand, rightHand, neck) {
 
     if (timeElapsed > timer) {
       localStorage.setItem('prompt', document.getElementById('prompt').innerHTML);
+      localStorage.setItem('strokeColor', color);
       window.location.href = 'start_draw.html'; // add prompt as well 
       timer = RIGHT_SELECTION_TIMEOUT;
     } else {
@@ -112,6 +110,7 @@ function devRechoose() {
 
 function devNext() {
     localStorage.setItem('prompt', document.getElementById('prompt').innerHTML);
+    localStorage.setItem('strokeColor', color);
     window.location.href = 'start_draw.html'; // add prompt as well 
     timer = RIGHT_SELECTION_TIMEOUT;
 }

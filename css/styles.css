@@ -57,6 +57,13 @@ body {
   margin-bottom: 20px;
 }
 
+.canvas-display {
+  width: 80%;
+  height: 80%;
+  background: white;
+  border-radius: 16px;
+}
+
 .display-screen2 {
   width: 80%;
   height: 20%;
@@ -200,7 +207,6 @@ body {
   height: 50px;
   cursor: pointer;
   font-size: medium;
-
 }
 
 .centered {
@@ -234,10 +240,12 @@ body {
 
 #cursor {
   position: absolute;
+  top: 50%;
+  left: 50%;
   width: 60px;
   height: 60px;
-  background-color: rgba(0, 123, 255, 0.7); /* Use your desired color and opacity */
   border-radius: 50%;
+  border: 1px solid gray;
   transform: translate(-50%, -50%);
   pointer-events: none; /* To allow mouse events to pass through to elements underneath */
   z-index: 9999; /* To ensure the cursor is on top of other elements */
@@ -299,11 +307,6 @@ body {
   font-size: large;
   font-weight: bold;
 }
-
-#canvas {
-  border: 1px solid red;
-}
-
 
 @keyframes gradient {
 	0% {
