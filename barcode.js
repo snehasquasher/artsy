@@ -24,7 +24,7 @@ qrCodeContainer.style.margin = 'auto';
 //     }
 // }, 1000);
 function redirect () {
-	window.location.href = 'prompt_pick.html';
+	window.location.href = 'index.html';
   }
   
   setTimeout(redirect, 10000);
