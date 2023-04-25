@@ -404,3 +404,38 @@ body {
   width: 64px;
   height: 64px;
 }
+
+#barcode_progressContainer {
+  width: 80%;
+  margin: auto;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  z-index: 100;
+}
+
+#barcode_progressBar {
+  width: 0%;
+  height: 100%;
+  background-color: #007bff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 20s linear;
+}
+
+#barcode_progress_text {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color:rgb(197, 233, 218) ;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px;
+}
