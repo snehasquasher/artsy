@@ -43,25 +43,59 @@ function submit() {
 function drawingCallback(_, rightHand,leftHand) {
     // Get the top corner of the canvas
     rightHand.x = window.innerWidth - rightHand.x;
-
     cursorElement.style.left = rightHand.x + 'px';
     cursorElement.style.top = rightHand.y + 'px';
     
-    let rightHand_xaxis = rightHand.x; 
-    let leftHand_xaxis = leftHand.x; 
+    let left_y = leftHand.y;
+    let right_y = rightHand.y;
+    console.log('y: ', y)
+    let neckHeight = neck.y;
+    console.log('neckHeight: ', neckHeight)
 
-    if (leftHand_xaxis < rightHand_xaxis){
-        console.log('hand is crossed')
-        timeElapsed = Date.now() - lastCursorUpdateTime;
+    const progressBar = document.getElementById('progress-bar-fill');
+    if(right_y >= neckHeight) { // If the cursor is in the bottom half of the screen, reset the timer
+        console.log('hand is down')
+        timer = SELECTION_TIMEOUT; // Reset timer
+        lastCursorUpdateTime = Date.now();
+        if (progressBar.classList.contains('animate')) {
+            progressBar.classList.remove('animate');
+        }
+        return;
+    }
+
+    if(right_y < neckHeight && left_y < neckHeight) {
+        console.log('both hands are up')
+        var timeElapsed = Date.now() - lastCursorUpdateTime;
+
         if(timeElapsed > timer) {
-            window.location.href = 'index.html';
+            submit()
+            // window.location.href = 's3_startdrawing.html';
             timer = SELECTION_TIMEOUT;
         } else {
             timer -= timeElapsed;
         }
-    
+
         lastCursorUpdateTime = Date.now();
     }
+
+  
+    
+    // let rightHand_xaxis = rightHand.x; 
+    // let leftHand_xaxis = leftHand.x; 
+
+    // if (leftHand_xaxis < rightHand_xaxis){
+    //     console.log('hand is crossed')
+    //     timeElapsed = Date.now() - lastCursorUpdateTime;
+    //     if(timeElapsed > timer) {
+    //         window.location.href = 'index.html';
+    //         timer = SELECTION_TIMEOUT;
+    //     } else {
+    //         timer -= timeElapsed;
+    //     }
+    
+    //     lastCursorUpdateTime = Date.now();
+    // }
+
 
     if (isDrawing) {
         timer = SELECTION_TIMEOUT;
