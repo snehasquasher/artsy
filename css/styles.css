@@ -70,6 +70,7 @@ body {
   align-items: center;
   position: relative;
   margin: 2rem;
+  font-size: 20px;
 }
 
 .title_text {
@@ -138,6 +139,7 @@ body {
   position: relative;
   flex-direction: column;
   margin: 2rem;
+  font-size:25px;
 }
 
 .progress-bar {
@@ -298,8 +300,6 @@ body {
   font-weight: bold;
 }
 
-
-
 #canvas {
   border: 1px solid red;
 }
@@ -324,4 +324,83 @@ body {
   margin-top:5%;
   border: none;
   width: 50%;
+  font-size:25px;
+}
+
+#h1{
+  font-size:50px;
+  font-family: 'Pacifico';
+}
+
+#barcode_body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-image: url("https://media0.giphy.com/media/FyoaJE2iah7WYeyxWr/giphy.gif");
+  background-size: cover;
+  animation: flicker 5s linear infinite;
+}
+
+#barcode_container {
+  position: relative; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+#barcode_title {
+  text-align: center;
+  position: fixed; 
+  top: 70px; 
+  width: 100%; 
+  margin: 0; 
+  padding: 20px; 
+  font-size: 90px;
+  font-family: 'Pacifico';
+  color: rgb(11, 11, 11);
+  box-sizing: border-box;
+  line-height: 80px;    
+}
+
+#barcode_buttonContainer {
+  position: fixed;
+  bottom: 50px; 
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+
+#barcode_button {
+  /*padding: 20px;
+  font-size: 30px;
+  font-family: 'Pacifico';
+  color: black;
+  border: 5px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: transparent;*/
+  background-color: rgb(197, 233, 218);
+  border-radius: 8rem;
+  height: 100px; 
+  margin-top:5%;
+  border: none;
+  width: 50%;
+  font-size:25px;
+}
+
+#barcode_paintbrushContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+#barcode_paintbrush {
+  width: 64px;
+  height: 64px;
 }

@@ -1,97 +1,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
 
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
-<body>
-    <div id="container">
-        <h1 id="title">Scan QR to obtain your drawing !</h1>
+<body id="barcode_body">
+    <div id="barcode_container">
+        <h1 id="barcode_title">Scan QR to obtain your drawing !</h1>
 
         <div id="qrCodeContainer"></div>
 
-        <div id="paintbrushContainer">
-            <img id="paintbrush" src="paintbrush.png" alt="Paintbrush icon">
+        <div id="barcode_paintbrushContainer">
+            <img id="barcode_paintbrush" src="paintbrush.png" alt="Paintbrush icon">
           </div>
     </div>
 
-    <div id="buttonContainer">
-        <button id="button">Next Screen</button>
+    <div id="barcode_buttonContainer">
+        <button id="barcode_button">Next Screen</button>
     </div>
 
     
     <script src="barcode.js"></script>
-    <style>
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            background-image: url("https://media0.giphy.com/media/FyoaJE2iah7WYeyxWr/giphy.gif");
-            background-size: cover;
-            animation: flicker 5s linear infinite;
-        }
-
-        
-        #container {
-            position: relative; 
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-        }
-
-        
-        #title {
-            text-align: center;
-            position: fixed; 
-            top: 70px; 
-            width: 100%; 
-            margin: 0; 
-            padding: 20px; 
-            font-size: 90px;
-            font-family: 'Pacifico';
-            color: rgb(11, 11, 11);
-            box-sizing: border-box;
-            line-height: 80px;    
-        }
-        
-        #buttonContainer {
-            position: fixed;
-            bottom: 20px; 
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-       
-        #button {
-            padding: 20px;
-            font-size: 30px;
-            font-family: 'Pacifico';
-            color: black;
-            border: 5px solid black;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            background-color: transparent;
-        }
-
-        #paintbrushContainer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-        }
-
-        #paintbrush {
-            width: 64px;
-            height: 64px;
-        }
-
-        
-            
-    </style>
 </body>
 </html>
