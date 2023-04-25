@@ -13,13 +13,18 @@ var qrCode = new QRCode(qrCodeContainer, {
 qrCodeContainer.style.display = 'block';
 qrCodeContainer.style.margin = 'auto';
 
-var countdownElement = document.getElementById("barcode_countdown");
-var countdownValue = 20;
-var countdownInterval = setInterval(function() {
-    countdownValue--;
-    countdownElement.textContent = countdownValue;
-    if (countdownValue <= 0) {
-        clearInterval(countdownInterval);
-        window.location.href = 'index.html';
-    }
-}, 1000);
+// var countdownElement = document.getElementById("barcode_countdown");
+// var countdownValue = 20;
+// var countdownInterval = setInterval(function() {
+//     countdownValue--;
+//     countdownElement.textContent = countdownValue;
+//     if (countdownValue <= 0) {
+//         clearInterval(countdownInterval);
+//         window.location.href = 'index.html';
+//     }
+// }, 1000);
+function redirect () {
+	window.location.href = 'prompt_pick.html';
+  }
+  
+  setTimeout(redirect, 10000);
